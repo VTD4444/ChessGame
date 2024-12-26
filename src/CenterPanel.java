@@ -489,7 +489,6 @@ public class CenterPanel extends JPanel {
     }
     public void SaveBoardToFile() {
         JFileChooser fileChooser = new JFileChooser();
-        System.out.println("batdauluu");
         File defaultDirectory = new File("save_game");
         fileChooser.setCurrentDirectory(defaultDirectory);
         int result = fileChooser.showSaveDialog(this);
@@ -500,7 +499,6 @@ public class CenterPanel extends JPanel {
                     for (int j = 0; j < 8; j++) {
                         CellPanel cell = boardCells[i][j];
                         ChessPiece piece = cell.currentChessPiece;
-                        String str=null;
                         if (piece != null) {
                             writer.write(i + "," + j + "," + piece.type + "," + piece.color);
                         } else {
@@ -516,7 +514,6 @@ public class CenterPanel extends JPanel {
                 JOptionPane.showMessageDialog(this, "Lỗi khi lưu bàn cờ: " + e.getMessage());
             }
         }
-        System.out.println("luu xong");
     }
     public void LoadBoardFromFile() {
         JFileChooser fileChooser = new JFileChooser();
@@ -543,7 +540,6 @@ public class CenterPanel extends JPanel {
                     int x = Integer.parseInt(parts[0]);
                     int y = Integer.parseInt(parts[1]);
                     CellPanel cellPanel=new CellPanel(isWhite,x,y);
-                    System.out.println(parts[0]+" "+parts[1]+" "+parts[2]+" "+parts[3]);
                     if (parts.length != 4) {
                         JOptionPane.showMessageDialog(this, "ERROR in line: " + line);
                         continue; // Bỏ qua dòng sai định dạng
